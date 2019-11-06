@@ -1,4 +1,4 @@
-#!/home/clarisse/Documents/moringa-school-projects/Python/ProGeek/virtual/bin/python
+#!/home/wecode/Documents/Django_Projects/ProGeek/virtual/bin/python
 from django.core import management
 
 if __name__ == "__main__":
