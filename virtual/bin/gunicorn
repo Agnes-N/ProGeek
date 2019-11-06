@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 #!/home/wecode/Documents/Django_Projects/ProGeek/virtual/bin/python
-=======
-#!/home/clarisse/Documents/moringa-school-projects/Python/ProGeek/virtual/bin/python
->>>>>>> 45b7ad0426409a81a42f42fa87dfc87194e50a7b
 # -*- coding: utf-8 -*-
 import re
 import sys

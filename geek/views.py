@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse,HttpResponseRedirect
-from .models import Programmers_profile,Project
+from .models import Programmers_profile,Project,Chat
 from django.contrib.auth.decorators import login_required
 # from .forms import NewProfileForm
+# from .models import Chat
+
 # Create your views here.
 
 def welcome(request):
