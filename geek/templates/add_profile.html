@@ -1,5 +1,7 @@
-{% load bootstrap4 %} 
-{% load staticfiles %}
+{% extends 'base.html' %}
+{% block content %}
+{%load bootstrap4%}
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -17,20 +19,22 @@
 
 </head>
 
-<body style="font-family: 'Playfair Display', serif; font-size:100%; background-color: gainsboro">
-<div class="container" style="margin-top:5%">
-
+<body style="margin-top:0%;background-image: url(https://data.whicdn.com/images/137582968/original.jpg);background-repeat: no-repeat;" >
+<div class="container" class="jumbotron" style="background-color:rgba(150, 151, 151,0.5);color: rgb(241, 237, 237);width: 500px;margin-top: 10px;float: right;margin-right: 40px">
+<h1 style="text-align:center"> Add Profile </h1>
   <form  action="{%url 'addprofile' %}" method="post" enctype="multipart/form-data">
     {%csrf_token%}
 
     {% bootstrap_form form%}
-    <input type="submit" class="btn btn-success btn-lg" value="Post">
+    <input type="submit" class="btn btn-info btn-lg" value="Post">
   </form>
 
    {% block scripts %}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   {% bootstrap_javascript %} {% endblock %}
 </div>
+<div></div>
 </body>
 
 </html>
+{% endblock %}

@@ -60,44 +60,14 @@
 </style>
 </head>
 <body>
-<!-- <div class="container"> -->
-  <!-- <div class="row" style="background-color:	white;">
-    <div class="col-md-8"> 
-      <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="{% url 'welcome' %}">Home</a>
-        {% if user.is_authenticated %}
-        <a href="/accounts/password/change">Edit Password</a>
-        <a href="/logout">Logout</a> 
-        {% else %}
-        <a  href="/accounts/login">Login</a> 
-        {% endif %}
-        
-      </div>
-      <div id="main">
-         
-        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
-        
-      </div>
-    </div>
-      
-<<<<<<< HEAD
-      <div class="col-md-4" style="margin-top:1%;">      
-          <a href="{% url 'addprofile' %}" style="color:black"><i class="fa fa-user" style="font-size: 220%; color: black"></i></a> 
-=======
-      <div class="col-md-4" style="margin-top:1%; ">      
-          <a href="{% url 'myprofile' %}" style="color:white"><i class="fa fa-user" style="font-size: 220%; color: black"></i></a> 
->>>>>>> 28d01b915745f2a05a94971ffff98ae5a0efc802
-          
-          
-      </div>
-    </div> -->
+
     <div class="container-fluid">
   
     <div class="topnav">
-      <a class="active" href="{% url 'welcome' %}">Home</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a class="active" href="{% url 'index' %}">Home</a>
+      <a href="{% url 'welcome'}">About</a>
+      <a href="{% url 'myprofile' %}">Profile</a>
+      <a href="{% url 'upload' %}">Project</a>
       {% if user.is_authenticated %}
      
       <a href="/logout">Logout</a> 
@@ -106,7 +76,12 @@
       {% endif %}
       
       <a style="color:white;margin-left:200px;font-size: 30px">PROGEEK</a>
+   
       <input type="text" placeholder="Search..">
+           
+        <a href="{% url 'myprofile' %}" style="color:white"><i class="fa fa-user" style="font-size: 220%; color: white"></i></a>   
+        
+  
     </div>
   </div>
 

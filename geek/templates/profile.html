@@ -1,5 +1,6 @@
 {%extends 'base.html'%}
-
+{%load bootstrap4%}
+{% load static %}
 {% block content %}
 {{block.super}}
 <style>
@@ -10,13 +11,14 @@
             border-radius: 50%;
         }
 </style>
+<body>
 
-<div class="container" style="margin-top:3%;">
-    <ul class="nav justify-content-end">
-        <li class="nav-item">
-            <a class="btn btn-info" href="{%url 'addprofile'%}" style="color: black">Create Profile</a>
-        </li>
-    </ul>
+<div class="container" style="margin-top:0%;">
+    <div>
+        <br>
+        <br>
+        <br>
+   <br>
     <div class="row">
         <div class="col-md-1">
             <div class="profile" style="margin-top: -7%">
@@ -28,10 +30,19 @@
                 <!-- <h5>{{my_profile.user}}</h5> -->
                 <h5>{{my_profile.names}}</h5>
                 <h5>{{my_profile.bio}}</h5>
+                <h5><a href="{{my_profile.github_link}}">{{my_profile.github_link}}</a></h5>
+              
+                      
+                            <p><a class="btn btn-outline-info" href="{%url 'addprofile'%}" style="color: black">Create Profile</a></p>
+                            <p><button class="btn btn-outline-info"><a href="{% url 'upload' %}">Submit project</a></button></p>
+   
+                        
+   
             </div>
         </div>
     </div>
+</div>
     <hr>
 </div>
-
+</body>
 {% endblock %}
