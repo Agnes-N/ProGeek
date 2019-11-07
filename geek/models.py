@@ -37,6 +37,7 @@ class Project(models.Model):
     posted_date = models.DateTimeField(auto_now_add=True, null=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE, null=True)
     programmers = models.ForeignKey(Programmers_profile,on_delete=models.CASCADE, null=True)
+    videofile= models.FileField(upload_to='videos/', null=True, verbose_name="")
 
     @classmethod
     def get_all_projects(cls):
