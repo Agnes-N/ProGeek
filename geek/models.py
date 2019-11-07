@@ -8,7 +8,8 @@ class Programmers_profile(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     profile_photo = models.ImageField(upload_to = 'profile_photos/', null=True)
     github_link = models.CharField(max_length =30)
-    date = models.DateTimeField(auto_now_add=True)
+    bio = models.CharField(max_length = 300, null=True)
+    date_joined = models.DateTimeField(auto_now_add=True, null=True)
     degree= models.CharField(max_length =30)
     @classmethod
     def get_all_programmers(cls):
@@ -33,9 +34,10 @@ class Project(models.Model):
     project_image = models.ImageField(upload_to = 'project_images/', null=True)
     description = models.CharField(max_length =300)
     link = models.URLField(max_length=128, db_index=True, unique=True, null=True)
-    posred_date = models.DateTimeField(auto_now_add=True, null=True)
+    posted_date = models.DateTimeField(auto_now_add=True, null=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE, null=True)
     programmers = models.ForeignKey(Programmers_profile,on_delete=models.CASCADE, null=True)
+    videofile= models.FileField(upload_to='videos/', null=True, verbose_name="")
 
     @classmethod
     def get_all_projects(cls):
@@ -52,7 +54,7 @@ class Project(models.Model):
         return self.title
 
 class Chat(models.Model):
-    chat_content = models.CharField(max_length=120)
+    chat_content = models.CharField(max_length = 120)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def save_chat(self):
         self.save()
