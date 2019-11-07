@@ -10,9 +10,9 @@ from django.contrib.auth.decorators import login_required
 
 def welcome(request):
     current_user = request.user
-    profiless = Profile.objects.filter(id = current_user.id).first()
+    profiless = Programmers_profile.objects.filter(id = current_user.id).first()
     all_projects = Project.get_all_projects()
-    return render(request, 'welcome.html', {"all_projects": all_projects,"profiless":profiless})
+    return render(request, 'index.html', {"all_projects": all_projects,"profiless":profiless})
 
 @login_required(login_url='/accounts/login/')
 def upload_project(request):
