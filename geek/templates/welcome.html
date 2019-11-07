@@ -17,7 +17,10 @@
         <h5> {{pro.title}} </h5>
         <h5>By {{pro.description}} </h5>
         <h5> <small>{{pro.posred_date|timesince}}</small> </h5>
-        
+        <video width='400' controls>
+            <source src='{% static "pro.videofile.mp4" %}' type='video/mp4'>
+            Your browser does not support the video tag.
+        </video>
     {% endfor %}  
 </div>
         
