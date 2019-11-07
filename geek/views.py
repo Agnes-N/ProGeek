@@ -48,3 +48,5 @@ def my_profile(request):
     # my_projects = Project.objects.filter(user = current_user)
     my_profile = Programmers_profile.objects.filter(user = current_user).first()
     return render(request, 'profile.html', {"my_profile":my_profile})
+
+    # my_projects = Project.objects.filter(user = current_user)
