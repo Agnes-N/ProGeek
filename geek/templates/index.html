@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {%load bootstrap4%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +9,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" />
 </head>
 <body>
+    <div class="container-fluid">
+
     
+    <div class="pictures">
+        <div class="title">
+            <h1 style="font-family: lato;font-size: 60px;font-weight: bold;color: white;background-color: rgba(0,0,0,0.5);text-align: center;
+            
+            ">Pro-Geek</h1>
+ 
+        </div>
+    </div>
+
+</div>
+        <br>
+
+
+        
 </body>
 </html>
+<style>
+
+
+
+  
+         
+     .pictures{
+      background-image: url("static/images/photo-1510751007277-36932aac9ebd (1).jpeg");
+      background-size:cover;
+      background-repeat:no-repeat;
+      height:200px;
+      
+      margin-left:2px;
+      animation: slide 10s infinite;
+    }
+    @keyframes slide{
+      60%{
+          background: url("static/images/photo-1544006659-f0b21884ce1d.jpeg");
+          background-size:cover;
+          background-repeat:no-repeat;
+          height:600px;
+          margin-left:2px;
+          
+          
+          
+      }
+      40%{
+          background: url("static/images/photo-1532618500676-2e0cbf7ba8b8.jpeg");
+          background-size:cover;
+          background-repeat:no-repeat;
+          height:600px;
+          margin-left:2px;
+         
+    }
+    }
+   
+     
+       
+        
+      
+</style>
 {%endblock%}
