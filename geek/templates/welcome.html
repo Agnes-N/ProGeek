@@ -1,17 +1,1 @@
-{%extends 'base.html'%}
 
-{% load staticfiles %}
-{% block content %}
-{{block.super}}
-
-<div class="container">
-    <p><button class="button"><a href="{% url 'upload' %}">Submit project</a></button></p>
-    {% for pro in all_projects %}
-        <h5> {{pro.title}} </h5>
-        <h5>By {{pro.description}} </h5>
-        <h5> <small>{{pro.posred_date|timesince}}</small> </h5>
-        
-    {% endfor %}  
-    </div>
-
-{% endblock %}

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load staticfiles %}
 {%load bootstrap4%}
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +11,17 @@
     <title>Document</title>
 </head>
 <body>
-    
+<div class="container">
+    <p><button class="button"><a href="{% url 'upload' %}">Submit project</a></button></p>
+    {% for pro in all_projects %}
+        <h5> {{pro.title}} </h5>
+        <h5>By {{pro.description}} </h5>
+        <h5> <small>{{pro.posred_date|timesince}}</small> </h5>
+        
+    {% endfor %}  
+</div>
+        
+       
 </body>
 </html>
 {%endblock%}
