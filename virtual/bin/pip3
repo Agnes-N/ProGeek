@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #!/home/wecode/Documents/ProGeek/virtual/bin/python
+=======
+#!/home/fanny/Desktop/ProGeek/virtual/bin/python
+>>>>>>> b9a7524bcff326449c5a67cbde9061e90b0bda64
 # -*- coding: utf-8 -*-
 import re
 import sys
