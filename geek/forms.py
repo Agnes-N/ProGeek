@@ -5,3 +5,8 @@ class NewProjectForm(forms.ModelForm):
     class Meta:
         model = Project
         exclude = ['user','programmers']
+
+class NewProfileForm(forms.ModelForm):
+    class Meta:
+        model = Programmers_profile
+        exclude = ['user']

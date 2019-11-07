@@ -1,4 +1,4 @@
-{% extends 'all_base/base.html' %}
+{% extends 'base.html' %}
 {% load bootstrap4 %}
 {% load static %}
 {% block content %}
@@ -11,7 +11,7 @@
   <div class="media-body">
   <div class="bodd">
   <h3 class="account-heading ml-4">{{user.username}}</h3>
-  <button class="btn btn-outline-primary"><a href="{% url 'profile_edit' %}">Edit Profile</a></button><a href="{% url 'homePage' %}" ><i class="" style="font-size: 28px;color: black;"></i></a>
+  <button class="btn btn-outline-primary"><a href="">Edit Profile</a></button><a href="" ><i class="" style="font-size: 28px;color: black;"></i></a>
 </div>
  
 <p class="text-secondary ml-4">Name:{{user.profile.name}}</p>
@@ -30,7 +30,7 @@
         </button>
       </div> -->
       <!-- <div class="form animated slideInDown">
-          <form action="{% url 'add_business' images.id %}" method="POST">
+          <form action="" method="POST">
                   {% csrf_token %}
                   {% bootstrap_form form %}
                   <button class="btn btn-outline-info modal-footer d-flex justify-content-center" type="submit">Submit </button>
