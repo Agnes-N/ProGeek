@@ -36,9 +36,28 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   {% bootstrap_javascript %} {% endblock %}
 
-</div>
+<!-- </div> -->
 
+  <!-- <div class="col-md-5">
+    {% for pro in all_projects %}
+    <p> {{pro.title}} </p>
+    <p> {{pro.description}} </p>
+    <p> <small>{{pro.posted_date|timesince}}</small> </p>
+    <p><a href="{{pro.link}}" target="_blank" >Project Link</a></p>
+    <video width='400' controls>
+        <source src='{% static "pro.videofile.mp4" %}' type='video/mp4'>
+        Your browser does not support the video tag.
+    </video>
+{% endfor %} 
+</div> -->
+<!-- </div> -->
+</div>
+</div>
 </body>
 
 </html>
+<<<<<<< HEAD
 {% endblock %}
+=======
+{% endblock %}
+>>>>>>> 8c33312040397c4b98741512411554b5f468f6bd

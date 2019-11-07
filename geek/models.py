@@ -11,23 +11,30 @@ class Programmers_profile(models.Model):
     bio = models.CharField(max_length = 300, null=True)
     date_joined = models.DateTimeField(auto_now_add=True, null=True)
     degree= models.CharField(max_length =30)
+
     @classmethod
     def get_all_programmers(cls):
         instagram_users = cls.objects.all()
         return instagram_users
+
     def save_programmer(self):
         self.save()
+
     def delete_programmer(self):
         self.delete()
+
     @classmethod
     def update_programmer(cls,id,value):
         cls.objects.filter(id = id).update(user_id = new_user)
+
     @classmethod
     def search_by_programmer(cls,names):
         certain_user = cls.objects.filter(user__names__icontains = names)
         return certain_user
+
     def __str__(self):
         return self.user
+
 
 class Project(models.Model):
     title = models.CharField(max_length =30)
@@ -53,6 +60,7 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+
 class Chat(models.Model):
     chat_content = models.CharField(max_length = 120)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -60,3 +68,23 @@ class Chat(models.Model):
         self.save()
     def delete_chat(self):
         self.delete()
+    def __str__(self):
+        return self.user
+
+# class Partner(models.Model):
+#     partner_names = models.CharField(max_length = 60)
+#     business_name = models.CharField(max_length = 30)
+#     location = models.CharField(max_length = 30)
+#     phone = models.IntegerField(default = 0)
+#     email = models.EmailField(null= True, unique= True)
+#     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
+#     partner_profile = models.ForeignKey(Programmers_profile,on_delete=models.CASCADE,null=True)
+
+#     def save_partner(self):
+#         self.save()
+
+#     def delete_partner(self):
+#         self.delete()
+        
+#     def __str__(self):
+#         return self.partner_names

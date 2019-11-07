@@ -10,3 +10,8 @@ class NewProfileForm(forms.ModelForm):
     class Meta:
         model = Programmers_profile
         exclude = ['user']
+
+# class NewPartnerForm(forms.ModelForm):
+#     class Meta:
+#         model = Partner
+#         exclude = ['user']

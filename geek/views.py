@@ -2,14 +2,8 @@ from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404,HttpResponseRedirect
 from .models import Programmers_profile,Project,Chat
 from django.contrib.auth.decorators import login_required
-from .forms import NewProfileForm
-from django.shortcuts import render
-from django.shortcuts import render,redirect,get_object_or_404
-from .models import Programmers_profile
-# from django.http import HttpResponse,Http404,HttpResponseRedirect
-# from django.contrib.auth.decorators import login_required
-from django.core.urlresolvers import reverse
-from django.contrib.auth.models import User
+from .forms import NewProjectForm,NewProfileForm
+
 # Create your views here.
 # @login_required(login_url='/accounts/login/')
 def welcome(request):
@@ -27,17 +21,19 @@ def index(request):
 @login_required(login_url='/accounts/login/')
 def upload_project(request):
     current_user = request.user
+    
     if request.method == 'POST':
         form = NewProjectForm(request.POST, request.FILES)
         if form.is_valid():
             image = form.save(commit=False)
             image.user = current_user
             image.save()
-        return redirect('welcome')
+        return redirect('upload')
 
     else:
-        form = NewProfileForm()
-    return render(request, 'upload_project.html', {"form":form})
+        form = NewProjectForm()
+    all_projects = Project.get_all_projects()
+    return render(request, 'upload_project.html', {"form": form,"all_projects": all_projects})
 
 @login_required(login_url='/accounts/login/')
 def add_profile(request):
