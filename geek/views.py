@@ -2,8 +2,7 @@ from django.shortcuts import render,redirect
 from django.http  import HttpResponse,Http404,HttpResponseRedirect
 from .models import Programmers_profile,Project,Chat
 from django.contrib.auth.decorators import login_required
-<<<<<<< HEAD
-from .forms import NewProjectForm
+from .forms import NewProfileForm
 from django.shortcuts import render
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Programmers_profile
@@ -11,26 +10,13 @@ from .models import Programmers_profile
 # from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
-=======
-from .forms import NewProjectForm,NewProfileForm
-
->>>>>>> b4f712487ae02e5ab7e95fbf74ad02442a8c33ba
 # Create your views here.
 # @login_required(login_url='/accounts/login/')
 def welcome(request):
     current_user = request.user
     # profiless = Programmers_profile.objects.filter(id = current_user.id).first()
     all_projects = Project.get_all_projects()
-<<<<<<< HEAD
-
-    programmers=Programmers_profile.objects.all()
-    current_user=request.user
-    myprof=Project.objects.filter(id=current_user.id).first()
-
-    return render(request, 'index.html', {"myprof":myprof,"programmers":programmers,"all_projects": all_projects})
-=======
     return render(request, 'welcome.html', {"all_projects": all_projects,})
->>>>>>> b4f712487ae02e5ab7e95fbf74ad02442a8c33ba
 
 @login_required(login_url='/accounts/login/')
 def upload_project(request):
@@ -44,23 +30,9 @@ def upload_project(request):
         return redirect('welcome')
 
     else:
-        form = NewProjectForm()
-    return render(request, 'upload_project.html', {"form": form})
+        form = NewProfileForm()
+    return render(request, 'upload_project.html', {"form":form})
 
-<<<<<<< HEAD
-
-# @login_required(login_url='/accounts/login/')
-def profilemy(request,username=None):
-    current_user=request.user
-    programmers=Programmers_profile.objects.all()
-    # pictures=Neighbour.objects.filter(location=current_user)
-    # busines=Business.objects.all()
-    if not username:
-        username=request.user.username
-       
-        # proc_img=Profile.objects.filter(user=current_user).first()
-    return render(request,'profilemy.html',locals(),{"programmers":programmers})
-=======
 @login_required(login_url='/accounts/login/')
 def add_profile(request):
     current_user = request.user
@@ -74,7 +46,7 @@ def add_profile(request):
             return redirect('myprofile')
 
     else:
-        form = NewProfileForm()
+        form =NewProfileForm()
     return render(request, 'add_profile.html', {"form": form})
 
 @login_required(login_url='/accounts/login/')
@@ -84,4 +56,3 @@ def my_profile(request):
     # my_projects = Project.objects.filter(user = current_user)
     my_profile = Programmers_profile.objects.filter(user = current_user).first()
     return render(request, 'profile.html', {"my_profile":my_profile})
->>>>>>> b4f712487ae02e5ab7e95fbf74ad02442a8c33ba
