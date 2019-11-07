@@ -7,8 +7,15 @@ from .forms import NewProjectForm
 # Create your views here.
 
 def welcome(request):
+<<<<<<< HEAD
     all_projects = Project.get_all_projects()
     return render(request, 'welcome.html', {"all_projects": all_projects})
+=======
+    current_user = request.user
+    # profiless = Profile.objects.filter(id = current_user.id).first()
+    all_projects = Project.get_all_projects()
+    return render(request, 'index.html', {"all_projects": all_projects,})
+>>>>>>> b9a7524bcff326449c5a67cbde9061e90b0bda64
 
 # @login_required(login_url='/accounts/login/')
 def upload_project(request):
