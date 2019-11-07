@@ -10,7 +10,7 @@ def welcome(request):
     # current_user = request.user
     # profiless = Profile.objects.filter(id = current_user.id).first()
     all_projects = Project.get_all_projects()
-    return render(request, 'index.html', {"all_projects": all_projects,})
+    return render(request, 'welcome.html', {"all_projects": all_projects,})
 
 @login_required(login_url='/accounts/login/')
 def upload_project(request):
