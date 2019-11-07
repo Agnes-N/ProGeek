@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'bootstrap4',
+    'bootstrap3',
     'geek.apps.GeekConfig',
     'django.contrib.admin',
     'django.contrib.auth',
