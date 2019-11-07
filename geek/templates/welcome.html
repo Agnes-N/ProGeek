@@ -14,9 +14,10 @@
 <div class="container">
     <p><button class="button"><a href="{% url 'upload' %}">Submit project</a></button></p>
     {% for pro in all_projects %}
-        <h5> {{pro.title}} </h5>
-        <h5>By {{pro.description}} </h5>
-        <h5> <small>{{pro.posred_date|timesince}}</small> </h5>
+        <p> {{pro.title}} </p>
+        <p> {{pro.description}} </p>
+        <p> <small>{{pro.posted_date|timesince}}</small> </p>
+        <p><a href="{{pro.link}}" target="_blank" >Project Link</a></p>
         <video width='400' controls>
             <source src='{% static "pro.videofile.mp4" %}' type='video/mp4'>
             Your browser does not support the video tag.

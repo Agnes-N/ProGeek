@@ -1,5 +1,5 @@
 from django import forms
-from .models import Programmers_profile,Project
+from .models import Programmers_profile,Project,Partner
 
 class NewProjectForm(forms.ModelForm):
     class Meta:
@@ -10,3 +10,8 @@ class NewProfileForm(forms.ModelForm):
     class Meta:
         model = Programmers_profile
         exclude = ['user']
+
+# class NewPartnerForm(forms.ModelForm):
+#     class Meta:
+#         model = Partner
+#         exclude = ['user']

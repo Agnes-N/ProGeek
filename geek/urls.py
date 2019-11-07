@@ -8,6 +8,7 @@ urlpatterns=[
     url(r'^new/upload$', views.upload_project, name='upload'),
     url(r'^new/profile$', views.add_profile, name='addprofile'),
     url(r'^myprofile$', views.my_profile, name='myprofile'),
+    url(r'^partner$', views.partners, name='partner'),
 ]
 
 if settings.DEBUG:
