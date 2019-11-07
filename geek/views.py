@@ -9,10 +9,10 @@ from .forms import ChatForm
 
 def welcome(request):
     current_user = request.user
-    profiless = Profile.objects.filter(id = current_user.id).first()
+    # profiless = Profile.objects.filter(id = current_user.id).first()
     all_projects = Project.get_all_projects()
     chat = Chat.objects.all()
-    return render(request, 'welcome.html', {"all_projects": all_projects,"profiless":profiless, "chat":chat})
+    return render(request, 'index.html', {"all_projects": all_projects, "chat":chat})
 
 @login_required(login_url='/accounts/login/')
 def upload_project(request):
@@ -29,10 +29,10 @@ def upload_project(request):
         form = NewProjectForm()
     return render(request, 'upload_project.html', {"form": form})
 
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def chat(request):
     current_user = request.user
-    profile = profile.objects.all()
+    profile = Programmers_profile.objects.all()
     if request.method == 'POST':
         form = ChatForm(request.POST, request.FILES)
         if form.is_valid():
@@ -42,5 +42,4 @@ def chat(request):
         return redirect('welcome')
     else:
         form = ChatForm
-    return render(request, 'chatform.html',{'form':form, 'profile':profile, 'current_user':current_user})
-    
+    return render(request, 'index.html',{'form':form, 'profile':Programmers_profile, 'user':current_user})

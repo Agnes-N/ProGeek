@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 urlpatterns=[
     url('^$',views.welcome,name = 'welcome'),
     url(r'^new/upload$', views.upload_project, name='upload'),
+    url(r'^new/chat$', views.chat, name='chat'),
 ]
 
 if settings.DEBUG:
