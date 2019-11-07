@@ -52,7 +52,7 @@ class Project(models.Model):
         return self.title
 
 class Chat(models.Model):
-    chat_content = models.CharField(max_length=120)
+    chat_content = models.CharField(max_length = 120)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def save_chat(self):
         self.save()

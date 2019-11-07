@@ -1,20 +1,16 @@
-from django.shortcuts import render
 from django.shortcuts import render,redirect
-from django.http  import HttpResponse,HttpResponseRedirect
+from django.http  import HttpResponse,Http404,HttpResponseRedirect
 from .models import Programmers_profile,Project,Chat
 from django.contrib.auth.decorators import login_required
-# from .forms import NewProfileForm
-# from .models import Chat
+from .forms import NewProjectForm
 
 # Create your views here.
 
 def welcome(request):
-    current_user = request.user
-    profiless = Profile.objects.filter(id = current_user.id).first()
     all_projects = Project.get_all_projects()
-    return render(request, 'welcome.html', {"all_projects": all_projects,"profiless":profiless})
+    return render(request, 'welcome.html', {"all_projects": all_projects})
 
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def upload_project(request):
     current_user = request.user
     if request.method == 'POST':
@@ -23,7 +19,7 @@ def upload_project(request):
             image = form.save(commit=False)
             image.user = current_user
             image.save()
-        return redirect('index')
+        return redirect('welcome')
 
     else:
         form = NewProjectForm()
