@@ -7,7 +7,7 @@
   overflow: hidden;
   background-color: black;
   position: fixed;
-  width:100%;
+  width:97.5%;
 }
 
 /* Style the links inside the navigation bar */
@@ -90,9 +90,16 @@
     <div class="container-fluid">
   
     <div class="topnav">
-      <a class="active" href="#home">Home</a>
+      <a class="active" href="{% url 'welcome' %}">Home</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
+      {% if user.is_authenticated %}
+     
+      <a href="/logout">Logout</a> 
+      {% else %}
+      <a  href="/accounts/login">Login</a> 
+      {% endif %}
+      
       <a style="color:white;margin-left:200px;font-size: 30px">PROGEEK</a>
       <input type="text" placeholder="Search..">
     </div>
